@@ -11,6 +11,7 @@ FREE_ALERT_LIMIT = 3
 FREE_ASSETS = {"USDNGN"}
 
 
+
 def get_user_alerts(telegram_id: int) -> list[dict]:
     try:
         res = db.list_documents(DB, COL, queries=[
