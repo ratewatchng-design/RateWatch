@@ -55,3 +55,5 @@ def deactivate_alert(document_id: str) -> None:
 
 def count_user_alerts(telegram_id: int) -> int:
     return len(get_user_alerts(telegram_id))
+
+
