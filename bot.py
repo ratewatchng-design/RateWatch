@@ -26,7 +26,6 @@ from jobs.weekly_summary import send_weekly_summary
 from utils.config import BOT_TOKEN
 import pytz
 
-
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO
@@ -93,15 +92,13 @@ async def main() -> None:
     logger.info("RateWatch NG starting — webhook: %s", webhook_url)
 
     async with app:
-        await app.bot.set_webhook(
-            url=webhook_url,
-            drop_pending_updates=True,
-        )
         await app.start()
         await app.updater.start_webhook(
             listen="0.0.0.0",
             port=8000,
             url_path="/webhook",
+            webhook_url=webhook_url,
+            drop_pending_updates=True,
         )
         # Run forever
         await asyncio.Event().wait()
