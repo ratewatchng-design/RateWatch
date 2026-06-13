@@ -26,6 +26,7 @@ from jobs.weekly_summary import send_weekly_summary
 from utils.config import BOT_TOKEN
 import pytz
 
+
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO
